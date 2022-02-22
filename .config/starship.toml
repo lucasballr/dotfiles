@@ -1,0 +1,17 @@
+# Starship configuration
+
+format = "$line_break$all$character"
+
+add_newline = false
+# 
+#
+#  
+# 
+[character] 
+success_symbol = " [ﭾ](white) [](bold bright-blue)"
+error_symbol = " [ﭾ](white) [](bold bright-red)"
+
+[cmd_duration]
+disabled = true
+
+

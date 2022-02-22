@@ -1,0 +1,104 @@
+; Polybar Config
+
+[settings]
+screenchange-reload = true
+
+[colors]
+primary = #1c1e26
+blue = #13c4d1
+lblue = #c1e9ec
+
+[bar/top]
+width = 100%
+height = 50
+border-top-size = 15
+border-left-size = 20
+border-right-size = 20
+border-bottom-size = 0
+padding-left = 1
+padding-right = 3
+module-margin-right = 1
+modules-left = i3
+modules-right = pulseaudio battery wireless-network date
+radius = 20
+font-0 = MesloLGS Nerd Font:syle=Regular:size=20;4
+background = ${colors.primary}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+label-focused = ""
+label-focused-foreground = ${colors.blue}
+label-focused-padding = 1
+label-unfocused = ""
+label-unfocused-foreground = ${colors.blue}
+label-unfocused-padding = 1
+label-visible = "%name%"
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+;label-visible-padding = ${self.label-focused-padding}
+strip-wsnumbers = true
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume = 墳
+label-volume-foreground = ${colors.blue}
+
+label-muted = "  Muted "
+label-muted-foreground = ${colors.blue}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.blue}
+bar-volume-foreground-1 = ${colors.blue}
+bar-volume-foreground-2 = ${colors.blue}
+bar-volume-foreground-3 = ${colors.blue}
+bar-volume-foreground-4 = ${colors.blue}
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = ﭾ
+bar-volume-indicator-font = 0
+bar-volume-indicator-foreground = ${colors.lblue}
+bar-volume-fill = ─
+bar-volume-fill-font = 0
+bar-volume-empty = ─
+bar-volume-empty-font = 0
+bar-volume-empty-foreground = ${colors.lblue}
+
+[module/battery]
+type = internal/battery
+;battery = BAT0
+format-charging = <ramp-capacity>
+format-discharging = <ramp-capacity>
+ramp-capacity-foreground = ${colors.blue}
+ramp-capacity-0 = | 
+ramp-capacity-1 = | 
+ramp-capacity-2 = | 
+ramp-capacity-3 = | 
+ramp-capacity-4 = | 
+
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+label-connected-foreground = ${colors.blue} 
+label-connected = "| 直 %essid%"
+label-ssid = "%essid%"
+label-ssid-foreground = ${colors.blue}
+label-connected-padding-left = 1
+label-disconnected-foreground = ${colors.blue} 
+label-disconnected = | 睊
+label-disconnected-padding-left = 1
+
+[module/date]
+type = internal/date
+time =  %H:%M
+date =  %A, %b %d %Y
+format = <label>
+label-foreground = ${colors.blue}
+label = | %date% | %time%
