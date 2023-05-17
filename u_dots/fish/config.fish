@@ -12,9 +12,6 @@ if status is-interactive
     	eval sudo $history[1]
     end
 
-    set -x PATH /opt/homebrew/bin /Users/lucasball/Documents/jdk-17.0.1/bin /Users/lucasball/Documents/ghidra /Users/lucasball/.cargo/bin /Users/lucasball/.local/nvim-osx64/bin /Users/lucasball/go/bin $PATH
-    set -x HOMEBREW_GITHUB_API_TOKEN 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
-
     set fish_greeting
     set -U EDITOR vim
     fzf_configure_bindings --directory=\cf --variables=\e\cv --history=\cg
