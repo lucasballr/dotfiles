@@ -32,6 +32,6 @@ if status is-interactive
 	end
     end
     set -g fish_key_bindings key_bindings
-    starship init fish | source
     source $HOME/.cargo/env
+    starship init fish | source
 end
