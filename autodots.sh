@@ -4,7 +4,7 @@
 install_pac() {
     pac=$1
     fail="Failed to install $pac"
-    if $(which $pac); then
+    if command -v "$pac" >/dev/null 2>&1; then
 	return
     fi
     if command -v apt-get &> /dev/null; then
@@ -38,7 +38,10 @@ if command -v apt-get &> /dev/null; then
     sudo apt-get install -y software-properties-common
     sudo add-apt-repository -y ppa:neovim-ppa/unstable
     sudo apt update
+elif command -v dnf &> /dev/null; then
+    sudo dnf install fd-find
 fi
+
 install_pac "neovim"
 install_pac "git"
 install_pac "curl"
