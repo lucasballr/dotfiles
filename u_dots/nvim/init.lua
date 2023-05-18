@@ -1,5 +1,9 @@
 -- This is for setting vars in vim
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth=4
+vim.opt.tabstop=2
+vim.opt.clipboard:append("unnamed")
+vim.opt.clipboard:append("unnamedplus")
+vim.cmd[[autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif]]
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -54,7 +58,7 @@ local mappings = {
 	["<space>"] = {
 	t = { "<cmd>Telescope find_files<cr>", "Open Telescope" },
 	e = { "<cmd>NERDTreeToggle<cr>", "Open NERDTree" },
-	r = { "<cmd>NERDTreeFocus<cr>", "Focus NERDTree" },
+	r = { "<C-W>W", "Focus Next Window" },
 	n = { "<cmd>set invnumber<cr>", "Toggle Line Numbers" },
 	k = { "<cmd>WhichKey<cr>", "Toggle Line Numbers" },
 	l = { "<cmd>LspInstallInfo<cr>", "Open LSP Installer" },
@@ -125,3 +129,4 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities
 }
+
