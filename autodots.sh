@@ -45,6 +45,7 @@ install_pac "curl"
 install_pac "fzf"
 install_pac "exa"
 install_pac "cmake"
+install_pac "zoxide"
 
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
