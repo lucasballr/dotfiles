@@ -50,8 +50,16 @@ install_pac "exa"
 install_pac "cmake"
 install_pac "zoxide"
 
-curl -sS https://starship.rs/install.sh | sh -s -- -y
+if ! command -v starship >/dev/null 2>&1; then
+		curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
 
 install_dots
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-chsh -s $(which fish)
+
+if ! command -v cargo >/dev/null 2>&1; then
+		curl https://sh.rustup.rs -sSf | sh -s -- -y
+fi
+if [ ! $SHELL = $(which fish) ]; then 
+		chsh -s $(which fish)
+fi
+
