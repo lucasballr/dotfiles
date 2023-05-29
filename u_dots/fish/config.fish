@@ -33,4 +33,7 @@ if status is-interactive
     end
     set -g fish_key_bindings key_bindings
     starship init fish | source
+		if test "$PWD" = "/var/home/laozi"
+				cd ~/
+    end
 end
