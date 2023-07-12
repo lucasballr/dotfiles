@@ -50,7 +50,10 @@ install_pac "exa"
 install_pac "cmake"
 install_pac "zoxide"
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+if [ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then 
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 if ! command -v starship >/dev/null 2>&1; then
