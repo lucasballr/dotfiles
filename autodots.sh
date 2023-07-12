@@ -51,16 +51,18 @@ install_pac "cmake"
 install_pac "zoxide"
 
 
-if [ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then 
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
 
 if ! command -v starship >/dev/null 2>&1; then
 		curl -sS https://starship.rs/install.sh | sh -s -- -y
 fi
 
 install_dots
+
+if [ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then 
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' 2>/dev/null
 
 if ! command -v cargo >/dev/null 2>&1; then
 		curl https://sh.rustup.rs -sSf | sh -s -- -y
