@@ -1,6 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export BW_SESSION:V\x2badvmGxrEELmTmGwxYnIShX7KUA78MuDw2XpJBI3\x2bXiMQXef2V2zMUgkFAAr0kgmN2Tqbo9\x2bt7wwYFwRuo2Jg\x3d\x3d
 SETUVAR EDITOR:vim
+SETUVAR --export PYENV_ROOT:/home/laozi/\x2epyenv
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/Users/lucasball/\x2elocal/share/z/data

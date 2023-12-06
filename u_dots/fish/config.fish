@@ -1,3 +1,7 @@
+if test (tty) = "/dev/tty1"
+    exec Hyprland &> /dev/null
+end
+
 if status is-interactive
     alias ls='exa -l'
     alias la='exa -al'
@@ -36,4 +40,5 @@ if status is-interactive
 		if test "$PWD" = "/var/home/laozi"
 				cd ~/
     end
+    pyenv init - | source
 end
